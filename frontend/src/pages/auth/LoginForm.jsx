@@ -14,7 +14,7 @@ import {
 // ** hooks
 import useSmoothScroll from '../../hooks/useSmoothScroll';
 import useRestrictScroll from '../../hooks/useRestrictScroll';
-import useEmailAuth from "../../hooks/auth/useEmailAuth";
+import useEmailAuth from "../../hooks/auth/useEmailAuth"; 
 
 // ** react icons
 import { FiMail } from 'react-icons/fi';
