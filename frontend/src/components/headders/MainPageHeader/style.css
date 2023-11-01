@@ -1,0 +1,32 @@
+.navbar-scrolled {
+  box-shadow: 2px 12px 15px -10px rgba(0, 0, 0, 0.95);
+  border-radius: 0 0 1rem 1rem;
+  transition-duration: 1s;
+}
+
+.nav-link {
+  background-color: inherit !important;
+  padding: 0.3rem 1rem !important;
+  transition-duration: 0.4s !important;
+}
+
+.nav-link.active {
+  color: rgb(2, 43, 58) !important;
+  background-color: white !important;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.profile-img {
+  width: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 10%;
+}
+
+@media (max-width: 768px) {
+  .profile-img {
+    width: 20%;
+    padding: 2%;
+  }
+}
