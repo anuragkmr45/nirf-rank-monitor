@@ -1,15 +1,19 @@
 import React from 'react'
 
-import { Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
-import MainPageHeader from '../components/headders/MainPageHeader'
+import LoginForm from '../components/forms/login-form'
 
 const index = () => {
     return (
-        <>
-            <MainPageHeader />
-        <Container>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam aut commodi quibusdam fugit recusandae perspiciatis, dolorem asperiores, reiciendis ipsam temporibus non consequatur minima adipisci est nihil nobis quidem. Sed, odio?</Container>
-        </>
+        <Row className='py-3' style={{ background: '#022B3A' }}>
+            <Col></Col>
+            <Col lg='10' className='p-3 fadeInUp'
+                style={{ boxShadow: '2px 12px 15px -10px rgba(0, 0, 0, 0.8)', borderRadius: '1rem', background: 'white' }} >
+                <LoginForm />
+            </Col>
+            <Col></Col>
+        </Row>
     )
 }
 

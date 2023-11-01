@@ -9,10 +9,8 @@ import {
 } from 'firebase/auth';
 import "firebase/app";
 
-// ** Create a context for authentication
 const AuthContext = React.createContext();
 
-// ** Custom hook to access the AuthContext
 export function useAuth() {
     return useContext(AuthContext);
 }

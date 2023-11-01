@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // ** styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/motions.css'
+import './styles/index.css';
 
 // ** react router dom
 import { BrowserRouter } from 'react-router-dom'
@@ -13,7 +14,6 @@ import { BrowserRouter } from 'react-router-dom'
 // ** firebase context
 import { AuthProvider } from './context/AuthContext'
 import { FirestoreProvider } from './context/FirestoreContext';
-import { CSVProvider } from './context/CSVReader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,9 +21,7 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <FirestoreProvider>
-          <CSVProvider >
-            <App />
-          </CSVProvider>
+          <App />
         </FirestoreProvider>
       </AuthProvider>
     </BrowserRouter>

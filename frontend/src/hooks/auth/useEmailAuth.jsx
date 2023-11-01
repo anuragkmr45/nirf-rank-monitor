@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 
 function useEmailAuth() {
-    const { currentUser, error, clearError, signUp, signIn, signOut } = useAuth();
+    const { currentUser, error, signIn, signOut } = useAuth();
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
@@ -12,17 +12,6 @@ function useEmailAuth() {
             setIsAuthenticated(false);
         }
     }, [currentUser]);
-
-    const handleEmailSignUp = async (email, password) => {
-        clearError();
-        try {
-            await signUp(email, password);
-
-        } catch (error) {
-            // Handle error
-            console.error("Email sign-up error:", error);
-        }
-    };
 
     const handleEmailSignIn = async (email, password) => {
         try {
@@ -45,7 +34,6 @@ function useEmailAuth() {
     return {
         isAuthenticated,
         currentUser,
-        handleEmailSignUp,
         handleEmailSignIn,
         handleSignOut,
         error
