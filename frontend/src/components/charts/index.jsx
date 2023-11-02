@@ -4,22 +4,17 @@ import LineChart from "./LineChart";
 import PieChart from "./PieChart";
 import { UserData } from "./Data";
 import { Container } from "react-bootstrap";
-import InstituteDataDropdown from '../../components/InstituteDataDropdown'
+
+import { historicalData } from '../../.data/historicalData'
 
 function ChartsComp() {
-    const [selectedData, setSelectedData] = useState([]);
-    
-    const updateSelectedData = (data) => {
-        setSelectedData(data);
-        console.log(selectedData)
-    };
 
     const [userData, setUserData] = useState({
         labels: UserData.map((data) => data.year),
         datasets: [
             {
-                label: 'selectedData[0].Institute_Name',
-                data: UserData.map((data) => data.userGain),
+                label: 'Institute_Name',
+                data: historicalData.map((data) => data.TLR_22),
                 backgroundColor: [
                     "rgba(75,192,192,1)",
                     "#ecf0f1",
@@ -35,15 +30,14 @@ function ChartsComp() {
 
     return (
         <Container>
-            <InstituteDataDropdown updateSelectedData={updateSelectedData} />
             <div style={{ width: 700 }}>
-                <BarChart chartData={userData} />
+                {/* <BarChart chartData={userData} /> */}
             </div>
             <div style={{ width: 700 }}>
-                <LineChart chartData={userData} />
+                <LineChart historicalData={historicalData} />
             </div>
             <div style={{ width: 700 }}>
-                <PieChart chartData={userData} />
+                {/* <PieChart historicalData={historicalData} /> */}
             </div>
         </Container>
     );

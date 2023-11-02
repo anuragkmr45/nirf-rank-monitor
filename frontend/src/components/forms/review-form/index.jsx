@@ -55,7 +55,7 @@ const ReviewForm = () => {
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-            // Send the form data to your FastAPI server
+            
             const response = await axios.post('http://localhost:8000/nirf', {
                 NE: values.field_1,
                 NT: values.field_2,
