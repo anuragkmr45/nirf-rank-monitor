@@ -52,14 +52,17 @@ const validationSchema = Yup.object().shape(
 );
 
 const ReviewForm = () => {
-
+    
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-
-            const response = await axios.post('http://localhost:8000/nirf', {
+            const response = await axios.post('http://localhost:8000/nirf/data', {
                 NT: values.field_2,
                 NP: values.field_3,
                 P: values.field_11,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json', // Set the content type to JSON
+                }
             });
 
             console.log('Server response:', response.data.finalValue);
@@ -67,6 +70,7 @@ const ReviewForm = () => {
             console.error('Error:', error);
         }
     };
+
 
     return (
         <Formik
