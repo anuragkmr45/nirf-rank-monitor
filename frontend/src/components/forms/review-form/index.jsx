@@ -55,37 +55,11 @@ const ReviewForm = () => {
 
     const handleSubmit = async (values, { setSubmitting }) => {
         try {
-            
+
             const response = await axios.post('http://localhost:8000/nirf', {
-                NE: values.field_1,
                 NT: values.field_2,
                 NP: values.field_3,
-                F: values.field_4,
-                Fra: values.field_5,
-                F1: values.field_6,
-                F2: values.field_7,
-                F3: values.field_8,
-                BC: values.field_9,
-                BO: values.field_10,
                 P: values.field_11,
-                FRQ: values.field_12,
-                CC: values.field_13,
-                TOP25: values.field_14,
-                PG: values.field_15,
-                PP: values.field_16,
-                RF: values.field_17,
-                CF: values.field_18,
-                NPP: values.field_19,
-                NHS: values.field_20,
-                NG: values.field_21,
-                MS: values.field_22,
-                NPHD: values.field_23,
-                RD: values.field_24,
-                NWS: values.field_25,
-                NESC: values.field_26,
-                PCS: values.field_27,
-                PCSOPT: values.field_28,
-                PR: values.field_29,
             });
 
             console.log('Server response:', response.data.finalValue);
