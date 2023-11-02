@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
 import ReviewForm from '../forms/review-form'
 import Chart from '../charts'
+import Recomandations from '../recomandationfunction'
 
 const VerticalNavTab = () => {
     const [activeTab, setActiveTab] = useState('tab1');
@@ -21,6 +22,9 @@ const VerticalNavTab = () => {
                         <Nav.Item>
                             <Nav.Link eventKey="tab2">Check Out Trends</Nav.Link>
                         </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link eventKey="tab3">Our Recomandations</Nav.Link>
+                        </Nav.Item>
                     </Nav>
                 </div>
                 <div className="col-md-9">
@@ -30,6 +34,9 @@ const VerticalNavTab = () => {
                         </Tab.Pane>
                         <Tab.Pane eventKey="tab2">
                             <Chart />
+                        </Tab.Pane>
+                        <Tab.Pane eventKey="tab3">
+                            <Recomandations />
                         </Tab.Pane>
                     </Tab.Content>
                 </div>

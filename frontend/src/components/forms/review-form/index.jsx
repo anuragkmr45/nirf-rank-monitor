@@ -1,4 +1,5 @@
 import React from 'react'
+import { Row, Col } from 'react-bootstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -94,31 +95,36 @@ const ReviewForm = () => {
     };
 
     return (
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={handleSubmit}
-            >
-                {() => (
-                    <Form>
-                        {customFieldNames.map((customName, index) => {
-                            const fieldName = `field_${index + 1}`;
-                            return (
-                                <div key={fieldName}>
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+        >
+            {() => (
+                <Form>
+                    {customFieldNames.map((customName, index) => {
+                        const fieldName = `field_${index + 1}`;
+                        return (
+                            <Row key={fieldName}>
+                                <Col lg='3'>
                                     <label htmlFor={fieldName}>{customName}:</label>
+                                </Col>
+                                <Col>
                                     <Field
                                         type="number"
                                         step="0.01"
                                         name={fieldName}
+                                        placeholder={customName}
                                     />
                                     <ErrorMessage name={fieldName} component="div" className="error" />
-                                </div>
-                            );
-                        })}
-                        <Button type="submit">Submit</Button>
-                    </Form>
-                )}
-            </Formik>
+                                </Col>
+                            </Row>
+                        );
+                    })}
+                    <Button type="submit">Submit</Button>
+                </Form>
+            )}
+        </Formik>
     )
 }
 

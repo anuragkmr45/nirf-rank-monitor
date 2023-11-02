@@ -3,13 +3,22 @@ import BarChart from "./BarChart";
 import LineChart from "./LineChart";
 import PieChart from "./PieChart";
 import { UserData } from "./Data";
+import { Container } from "react-bootstrap";
+import InstituteDataDropdown from '../../components/InstituteDataDropdown'
 
 function ChartsComp() {
+    const [selectedData, setSelectedData] = useState([]);
+    
+    const updateSelectedData = (data) => {
+        setSelectedData(data);
+        console.log(selectedData)
+    };
+
     const [userData, setUserData] = useState({
         labels: UserData.map((data) => data.year),
         datasets: [
             {
-                label: "Users Gained",
+                label: 'selectedData[0].Institute_Name',
                 data: UserData.map((data) => data.userGain),
                 backgroundColor: [
                     "rgba(75,192,192,1)",
@@ -24,10 +33,9 @@ function ChartsComp() {
         ],
     });
 
-    // IF YOU SEE THIS COMMENT: I HAVE GOOD EYESIGHT
-
     return (
-        <div className="App">
+        <Container>
+            <InstituteDataDropdown updateSelectedData={updateSelectedData} />
             <div style={{ width: 700 }}>
                 <BarChart chartData={userData} />
             </div>
@@ -37,7 +45,7 @@ function ChartsComp() {
             <div style={{ width: 700 }}>
                 <PieChart chartData={userData} />
             </div>
-        </div>
+        </Container>
     );
 }
 
